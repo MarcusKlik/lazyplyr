@@ -11,7 +11,9 @@ Depends:
     R (>= 3.0.0)
 License: AGPL-3 | file LICENSE
 Imports:
-    crayon
+    crayon,
+    dplyr,
+    tidyselect
 Suggests:
     testthat,
     lintr,

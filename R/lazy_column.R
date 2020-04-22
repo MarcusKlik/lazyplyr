@@ -32,9 +32,7 @@ lazy_column <- function(meta) {
     meta = meta
   )
 
-  class(col) <- "lazycolumn"
+  class(col) <- "lazy_column"
 
   col
 }
-
-

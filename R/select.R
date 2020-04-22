@@ -20,9 +20,19 @@
 #  - lazyplyr R package source repository : https://github.com/fstpackage/lazyplyr
 
 
-#' @importFrom crayon italic
-#' @importFrom crayon cyan
-#' @import dplyr
-#' @importFrom tidyselect eval_select
-#' @importFrom utils packageVersion
-NULL
+#' @export
+dplyr::select
+#' @export
+select.lazy_table <- function(.data, ...) {  # nolint
+
+  tidyselect::eval_select(..., .data)
+}
+
+
+#' @export
+dplyr::rename
+#' @export
+rename.lazy_table <- function(.data, ...) {  # nolint
+
+  tidyselect::eval_rename(..., .data)
+}
