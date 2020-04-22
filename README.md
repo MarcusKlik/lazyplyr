@@ -15,8 +15,8 @@ maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www
 
 ## Overview
 
-The [*lazyplyr* package](https://github.com/fstpackage/lazyplyr) for `R`
-provides an easy way to create a low-momory overhead dplyr frontend to
+The [lazyplyr package](https://github.com/fstpackage/lazyplyr) for `R`
+provides an easy way to create a low-memory overhead dplyr frontend to
 offline datasets.
 
 ## Installation

@@ -2,6 +2,7 @@
 
 S3method(rename,lazy_table)
 S3method(select,lazy_table)
+export("%>%")
 export(lazy_column)
 export(lazy_table)
 export(rename)

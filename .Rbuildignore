@@ -4,3 +4,4 @@
 ^.*\.Rmd$
 ^.*\.md$
 ^prepare$
+^showcase

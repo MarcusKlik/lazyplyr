@@ -21,11 +21,22 @@
 
 
 #' @export
+dplyr::`%>%`
+
+
+#' @export
 dplyr::select
 #' @export
 select.lazy_table <- function(.data, ...) {  # nolint
 
-  tidyselect::eval_select(..., .data)
+  col_data <- attr(.data, "cols")
+  cols <- tidyselect::eval_select(expr(c(...)), col_data)
+
+  selection <- col_data[cols]
+  colnames(selection) <- names(cols)
+  
+  attr(.data, "cols") <- selection
+  .data
 }
 
 

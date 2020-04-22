@@ -24,8 +24,7 @@ knitr::opts_chunk$set(
 
 ## Overview
 
-The [_lazyplyr_ package](https://github.com/fstpackage/lazyplyr) for `R` provides an easy way to create a low-momory overhead dplyr frontend to
-offline datasets.
+The [lazyplyr package](https://github.com/fstpackage/lazyplyr) for `R` provides an easy way to create a low-memory overhead dplyr frontend to offline datasets.
 
 ## Installation
 

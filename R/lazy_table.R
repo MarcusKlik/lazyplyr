@@ -33,9 +33,11 @@ lazy_table <- function(...) {
   if (length(col_list) == 1) {
     col <- col_list[[1]]
     if (class(col) != "lazy_column") {
-      if (is.list(col)) col_list <- col
-    } else {
-      stop("column must be defined as a named set of lazy_column objects, please see", " lazy_column() documentation")
+      if (is.list(col)) {
+        col_list <- col
+      } else {
+        stop("column must be defined as a named set of lazy_column objects, please see", " lazy_column() documentation")
+      }
     }
   } else {
     sapply(col_list, function(col) {
@@ -48,11 +50,14 @@ lazy_table <- function(...) {
     stop("all columns must be named")
   }
 
-  class(col_list) <- "lazy_table"
+  res <- as.list(1)
 
-  attr(col_list, "meta") <- list(
-    B = 20
-  )
+  header <- as.data.frame(as.list(seq_len(length(col_list))))
+  colnames(header) <- names(col_list)
 
-  col_list
+  class(res) <- "lazy_table"
+  attr(res, "meta") <- col_list
+  attr(res, "cols") <- header
+  
+  res
 }

@@ -3,6 +3,7 @@
 \docType{import}
 \name{reexports}
 \alias{reexports}
+\alias{\%>\%}
 \alias{select}
 \alias{rename}
 \title{Objects exported from other packages}
@@ -12,6 +13,6 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{dplyr}{\code{\link[dplyr]{rename}}, \code{\link[dplyr]{select}}}
+  \item{dplyr}{\code{\link[dplyr]{\%>\%}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr]{select}}}
 }}
 
