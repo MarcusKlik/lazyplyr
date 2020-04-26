@@ -50,14 +50,14 @@ lazy_table <- function(...) {
     stop("all columns must be named")
   }
 
-  res <- as.list(1)
-
-  header <- as.data.frame(as.list(seq_len(length(col_list))))
-  colnames(header) <- names(col_list)
+  res <- as.list(seq_len(length(col_list)))
+  names(res) <- names(col_list)
+  
+  header <- as.data.frame(res)
 
   class(res) <- "lazy_table"
   attr(res, "meta") <- col_list
   attr(res, "cols") <- header
-  
+
   res
 }

@@ -36,3 +36,48 @@ lazy_column <- function(meta) {
 
   col
 }
+
+
+#' Default lazy column implementation
+#'
+#' @param lazy_col a custom lazy column
+#' @param index an integer vector specifying the indices to use from the vector or a single integer specifying
+#' the starting index position of the subset. If a single integer is used, length should be equal to the total number
+#' of elements.
+#' @param length total number of elements required or NULL if parameter index is set to a integer vector
+#'
+#' @return
+#' @export
+#'
+#' @examples
+read_column.lazy_column <- function(lazy_col, index, length) {
+
+  # full column
+  if (is.null(index)) {
+    return(lazy_col$meta)
+  }
+
+  # range
+  if (is.null(length)) {
+    return(lazy_col$meta[index])
+  }
+
+  lazy_col$meta[index:(index + length - 1)]
+}
+
+
+#' Test a custom implemented lazy column
+#'
+#' @param lazy_col a custom lazy_column
+#'
+#' @return TRUE if the teste were succesfull, FALSE otherwise
+#' @export
+#'
+#' @examples
+lazy_column_test <- function(lazy_col) {
+
+  res <- read_column(lazy_col, NULL, NULL)
+  meta <- data.frame(Test = "full read", Type = typeof(res), IsVector = is.vector(res), Length = length(res), Result = "oke")
+
+  as_tibble(meta)
+}

@@ -20,39 +20,18 @@
 #  - lazyplyr R package source repository : https://github.com/fstpackage/lazyplyr
 
 
+#' Read data from a lazy column
+#'
+#' @param lazy_col a lazy column
+#' @param index an integer vector specifying the indices to use from the vector, a single integer specifying
+#' the starting index position of the subset or NULL. If a single integer is used, length should be equal to the total number
+#' of elements. If NULL, the full column will be read.
+#' @param length total number of elements required or NULL if parameter index is set to a integer vector
+#'
+#' @return
 #' @export
-dplyr::`%>%`
-
-
-#' @export
-dplyr::select
-#' @export
-select.lazy_table <- function(.data, ...) {  # nolint
-
-  selector <- attr(.data, "cols")
-  col_list <- attr(.data, "meta")
-
-  # select
-  cols <- tidyselect::eval_select(expr(c(...)), selector)
-  selector <- selector[cols]
-  colnames(selector) <- names(cols)
-
-  res <- as.list(selector)
-
-  # col_list <- col_list[cols]
-  
-  attr(res, "cols") <- selector
-  attr(res, "meta") <- col_list
-  class(res) <- "lazy_table"
-
-  res
-}
-
-
-#' @export
-dplyr::rename
-#' @export
-rename.lazy_table <- function(.data, ...) {  # nolint
-
-  tidyselect::eval_rename(..., .data)
+#'
+#' @examples
+read_column <- function(lazy_col, index, length) {
+  UseMethod("read_column")
 }
