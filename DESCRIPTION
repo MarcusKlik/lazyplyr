@@ -9,7 +9,7 @@ Description: Provides a toolset for interfacing with out of memory datasets usin
     are computed in the most laziest possible manner to minimize RAM usage and data transfer to offline systems.
 Depends:
     R (>= 3.0.0)
-License: AGPL-3 | file LICENSE
+License: MIT + file LICENSE
 Imports:
     crayon,
     dplyr,

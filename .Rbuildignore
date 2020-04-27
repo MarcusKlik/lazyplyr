@@ -5,3 +5,4 @@
 ^.*\.md$
 ^prepare$
 ^showcase
+^LICENSE\.md$
