@@ -3,6 +3,7 @@
 ^.*\.yml$
 ^.*\.Rmd$
 ^.*\.md$
+^internal_data$
+^LICENSE\.md$
 ^prepare$
 ^showcase
-^LICENSE\.md$

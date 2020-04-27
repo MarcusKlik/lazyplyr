@@ -27,6 +27,10 @@
 #' @importFrom crayon italic
 #' @importFrom crayon cyan
 #' @import dplyr
+#' @importFrom rlang as_string call2 is_symbol is_syntactic_literal
 #' @importFrom tidyselect eval_select
 #' @importFrom utils packageVersion
 NULL
+
+# use of vaiables inside package
+utils::globalVariables(c("index", "args2"))

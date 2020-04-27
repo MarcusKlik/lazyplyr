@@ -114,14 +114,16 @@ op2 <- function(method, vec1, vec2, index, length = NULL) {
 }
 
 
-#' wrap a table or vector
+#' restructure an expression for use with sub-setting method `read_column`
 #'
-#' @param obj a data.frame, tibble, data.table or vector object
+#' @param e expression to restructure
+#' @param col_symbols vector with the symbol names of variables that can be subsetted
 #'
 #' @return a lazy table or vector
 #' @export
-parse_tree <- function(lazy_tbl, e) {
-  col_symbols <- names(lazy_tbl)
+parse_tree <- function(e, col_symbols) {
+  
+  e <- enexpr(e)
   
   tree <- parse_sub_tree(e, col_symbols)
 
@@ -129,16 +131,12 @@ parse_tree <- function(lazy_tbl, e) {
 }
 
 
-#' Title
-#'
-#' @param e 
-#' @param col_symbols 
-#'
-#' @return
-#' @export
-#'
-#' @examples
 parse_sub_tree <- function(e, col_symbols) {
+
+  # check for constants
+  if (is_syntactic_literal(e)) {
+    return(list(FALSE, e))
+  }
 
   # check for known column names
   if (is_symbol(e)) {
@@ -157,7 +155,7 @@ parse_sub_tree <- function(e, col_symbols) {
     method_name <- as_string(e[[1]])
 
     method_hit <- method_table %>%
-      filter(Method == method_name)
+      filter(.data$Method == method_name)
 
     # unknown method, substitute only with full column reads
     if (nrow(method_hit) == 0) {
@@ -168,28 +166,31 @@ parse_sub_tree <- function(e, col_symbols) {
     if (method_hit$Type == "so") {
 
       # parse arguments
-      arg1 <- parse_sub_tree(e[[2]], col_symbols)
+      arg1 <- e[[2]]
+      arg1 <- parse_sub_tree(expr(!!arg1), col_symbols)
 
       # nothing to subset
       if (!arg1[[1]]) {
         return(list(FALSE, e))
       }
 
-      return(list(TRUE, call2(lazyplyr::op1, e[[1]], arg1, expr(index), expr(length))))
+      return(list(TRUE, call2(quote(lazyplyr::op1), e[[1]], arg1[[2]], expr(index), expr(length))))
     }
 
     # binary operator
     if (method_hit$Type == "bo") {
 
       # parse arguments
-      arg1 <- parse_sub_tree(e[[2]], col_symbols)
-      arg2 <- parse_sub_tree(e[[3]], col_symbols)
+      arg1 <- e[[2]]
+      arg2 <- e[[3]]
+      arg1 <- parse_sub_tree(expr(!!arg1), col_symbols)
+      arg2 <- parse_sub_tree(expr(!!arg2), col_symbols)
 
       if (!arg1[[1]] && !args2[[1]]) {
         return(list(FALSE, e))
       }
 
-      return(list(TRUE, call2(lazyplyr::op2, e[[1]], arg1, arg2, expr(index), expr(length))))
+      return(list(TRUE, call2(quote(lazyplyr::op2), e[[1]], arg1[[2]], arg2[[2]], expr(index), expr(length))))
     }
 
     stop("unknown function type")

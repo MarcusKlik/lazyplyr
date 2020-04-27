@@ -2,16 +2,18 @@
 % Please edit documentation in R/parse_tree.R
 \name{parse_tree}
 \alias{parse_tree}
-\title{wrap a table or vector}
+\title{restructure an expression for use with sub-setting method `read_column`}
 \usage{
-parse_tree(lazy_tbl, e)
+parse_tree(e, col_symbols)
 }
 \arguments{
-\item{obj}{a data.frame, tibble, data.table or vector object}
+\item{e}{expression to restructure}
+
+\item{col_symbols}{vector with the symbol names of variables that can be subsetted}
 }
 \value{
 a lazy table or vector
 }
 \description{
-wrap a table or vector
+restructure an expression for use with sub-setting method `read_column`
 }

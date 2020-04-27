@@ -13,6 +13,7 @@ License: MIT + file LICENSE
 Imports:
     crayon,
     dplyr,
+    rlang,
     tidyselect
 Suggests:
     testthat,
