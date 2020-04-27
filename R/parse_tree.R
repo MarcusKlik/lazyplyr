@@ -200,17 +200,13 @@ parse_sub_tree <- function(e, col_symbols) {
 }
 
 
-#' Title
-#'
-#' @param e 
-#' @param col_symbols 
-#'
-#' @return
-#' @export
-#'
-#' @examples
 substitute_sub_tree <- function(e, col_symbols) {
   
+  # check for constants
+  if (is_syntactic_literal(e)) {
+    return(e)
+  }
+
   # check for known column names
   if (is_symbol(e)) {
     

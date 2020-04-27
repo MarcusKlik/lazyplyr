@@ -28,7 +28,7 @@
 #' @importFrom crayon cyan
 #' @import dplyr
 #' @importFrom rlang as_string call2 is_symbol is_syntactic_literal
-#' @importFrom tidyselect eval_select
+#' @importFrom tidyselect eval_select eval_rename
 #' @importFrom utils packageVersion
 NULL
 

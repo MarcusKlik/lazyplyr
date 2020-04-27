@@ -30,6 +30,8 @@ dplyr::`%>%`
 
 #' @export
 dplyr::select
+
+
 #' @export
 select.lazy_table <- function(.data, ...) {  # nolint
 
@@ -55,6 +57,8 @@ select.lazy_table <- function(.data, ...) {  # nolint
 
 #' @export
 dplyr::rename
+
+
 #' @export
 rename.lazy_table <- function(.data, ...) {  # nolint
 
