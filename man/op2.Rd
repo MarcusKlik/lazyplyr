@@ -19,9 +19,6 @@ of elements. If NULL, the full column will be read.}
 
 \item{length}{total number of elements required or NULL if parameter index is set to a integer vector}
 }
-\value{
-
-}
 \description{
 Wraps a binary operator to enable subset results
 }

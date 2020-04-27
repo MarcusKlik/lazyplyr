@@ -33,7 +33,6 @@
 #' of elements. If NULL, the full column will be read.
 #' @param length total number of elements required or NULL if parameter index is set to a integer vector
 #'
-#' @return
 #' @export
 op1 <- function(method, vec1, index, length = NULL) {
 
@@ -70,7 +69,6 @@ op1 <- function(method, vec1, index, length = NULL) {
 #' of elements. If NULL, the full column will be read.
 #' @param length total number of elements required or NULL if parameter index is set to a integer vector
 #'
-#' @return
 #' @export
 op2 <- function(method, vec1, vec2, index, length = NULL) {
   
@@ -153,9 +151,10 @@ parse_sub_tree <- function(e, col_symbols) {
 
     # check for known methods
     method_name <- as_string(e[[1]])
+    nr_of_args <- length(e) - 1
 
     method_hit <- method_table %>%
-      filter(.data$Method == method_name)
+      filter(.data$Method == method_name & .data$NrOfArgs == nr_of_args)
 
     # unknown method, substitute only with full column reads
     if (nrow(method_hit) == 0) {

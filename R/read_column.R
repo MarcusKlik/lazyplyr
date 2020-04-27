@@ -32,7 +32,7 @@
 #' of elements. If NULL, the full column will be read.
 #' @param length total number of elements required or NULL if parameter index is set to a integer vector
 #'
-#' @return
+#' @return a subset of a lazy_column
 #' @export
 #'
 #' @examples

@@ -16,7 +16,7 @@ of elements. If NULL, the full column will be read.}
 \item{length}{total number of elements required or NULL if parameter index is set to a integer vector}
 }
 \value{
-
+a subset of a lazy_column
 }
 \description{
 Read data from a lazy column
