@@ -141,7 +141,7 @@ parse_sub_tree <- function(e, col_symbols) {
 
     col <- as_string(e)
     if (col %in% col_symbols) {
-      return(list(TRUE, call2("lazyplyr::read_column", e, expr(index), expr(length))))
+      return(list(TRUE, call2("read_column", e, expr(index), expr(length))))
     }
 
     return(list(FALSE, e))
@@ -168,12 +168,18 @@ parse_sub_tree <- function(e, col_symbols) {
       arg1 <- e[[2]]
       arg1 <- parse_sub_tree(expr(!!arg1), col_symbols)
 
+      e[[2]] <- arg1[[2]]
+
       # nothing to subset
       if (!arg1[[1]]) {
         return(list(FALSE, e))
       }
 
-      return(list(TRUE, call2(quote(lazyplyr::op1), e[[1]], arg1[[2]], expr(index), expr(length))))
+      return(list(TRUE, e))
+      # 
+      # # subset argument and call operator
+      # subcall <- call2(quote(lazyplyr::subset_vec), arg1[[2]], expr(index), expr(length))
+      # return(list(TRUE, call2(e[[1]], subcall)))
     }
 
     # binary operator
@@ -185,7 +191,7 @@ parse_sub_tree <- function(e, col_symbols) {
       arg1 <- parse_sub_tree(expr(!!arg1), col_symbols)
       arg2 <- parse_sub_tree(expr(!!arg2), col_symbols)
 
-      if (!arg1[[1]] && !args2[[1]]) {
+      if (!arg1[[1]] && !arg2[[1]]) {
         return(list(FALSE, e))
       }
 
@@ -211,7 +217,7 @@ substitute_sub_tree <- function(e, col_symbols) {
     
     col <- as_string(e)
     if (col %in% col_symbols) {
-      return(call2("lazyplyr::read_column", e, expr(NULL)))
+      return(call2("read_column", e, expr(NULL)))
     }
     
     return(e)

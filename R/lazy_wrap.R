@@ -28,9 +28,9 @@
 #'
 #' @param obj a data.frame, tibble, data.table or vector object
 #'
-#' @return a lazy table or vector
+#' @return a lazy table or lazy vector
 #' @export
-wrap <- function(obj) {
+lazy_wrap <- function(obj) {
 
   if (is.vector(obj)) {
     return(lazy_column(obj))

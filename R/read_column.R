@@ -39,3 +39,30 @@
 read_column <- function(lazy_col, index, length) {
   UseMethod("read_column")
 }
+
+
+#' Subset vector using special semantics
+#'
+#' @param vec vector to subset
+#' @param index an integer vector specifying the indices to use from the vector, a single integer specifying
+#' the starting index position of the subset or NULL. If a single integer is used, length should be equal to the total number
+#' of elements. If NULL, the full column will be read.
+#' @param length total number of elements required or NULL if parameter index is set to a integer vector
+#'
+#' @return a subset of vector `vec`
+#' @export
+#'
+#' @examples
+subset_vec <-  function(vec, index, length) {
+  # full column
+  if (is.null(index)) {
+    return(vec)
+  }
+  
+  # range
+  if (is.null(length)) {
+    return(vec[index])
+  }
+  
+  vec[index:(index + length - 1)]
+}
