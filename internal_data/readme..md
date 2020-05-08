@@ -7,3 +7,4 @@ This table is used as an internal dataset to lazyplyr. When updated, 'methods.cs
 method_table <- read.csv2("methods.csv",stringsAsFactors = FALSE)
 usethis::use_data(method_table, internal = TRUE, overwrite = TRUE)
 ```
+

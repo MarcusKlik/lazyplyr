@@ -161,7 +161,7 @@ parse_sub_tree <- function(e, col_symbols) {
       return(list(FALSE, substitute_sub_tree(e, col_symbols)))
     }
 
-    # binary operator
+    # single argument operator
     if (method_hit$Type == "so") {
 
       # parse arguments
@@ -176,13 +176,9 @@ parse_sub_tree <- function(e, col_symbols) {
       }
 
       return(list(TRUE, e))
-      # 
-      # # subset argument and call operator
-      # subcall <- call2(quote(lazyplyr::subset_vec), arg1[[2]], expr(index), expr(length))
-      # return(list(TRUE, call2(e[[1]], subcall)))
     }
 
-    # binary operator
+    # dual argument operator
     if (method_hit$Type == "bo") {
 
       # parse arguments
@@ -191,16 +187,29 @@ parse_sub_tree <- function(e, col_symbols) {
       arg1 <- parse_sub_tree(expr(!!arg1), col_symbols)
       arg2 <- parse_sub_tree(expr(!!arg2), col_symbols)
 
+      # both arguments are not subsettable
       if (!arg1[[1]] && !arg2[[1]]) {
         return(list(FALSE, e))
       }
 
-      return(list(TRUE, call2(quote(lazyplyr::op2), e[[1]], arg1[[2]], arg2[[2]], expr(index), expr(length))))
+      # first argument not subsettable
+      if (!arg1[[1]]) {
+        arg1[[2]] <- call2("subset_vec", arg1[[2]], expr(index), expr(length))
+      }
+
+      if (!arg2[[1]]) {
+        arg2[[2]] <- call2("subset_vec", arg2[[2]], expr(index), expr(length))
+      }
+
+      e[[2]] <- arg1[[2]]
+      e[[3]] <- arg2[[2]]
+
+      return(list(TRUE, e))
     }
 
     stop("unknown function type")
   }
-  
+
   return(list(FALSE, e))
 }
 
