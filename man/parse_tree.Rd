@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse_tree.R
 \name{parse_tree}
 \alias{parse_tree}
-\title{restructure an expression for use with sub-setting method `read_column`}
+\title{restructure an expression for use with sub-setting methods `read_column` and `subset_vec`}
 \usage{
 parse_tree(e, col_symbols)
 }
@@ -15,5 +15,5 @@ parse_tree(e, col_symbols)
 a lazy table or vector
 }
 \description{
-restructure an expression for use with sub-setting method `read_column`
+restructure an expression for use with sub-setting methods `read_column` and `subset_vec`
 }

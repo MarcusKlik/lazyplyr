@@ -10,13 +10,13 @@ status](https://ci.appveyor.com/api/projects/status/bfm7amtkyjvc2rk9?svg=true)](
 [![License: AGPL
 v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+experimental](https://img.shields.io/badge/lifecycle-experimental-blue.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![codecov](https://codecov.io/gh/fstpackage/lazyplyr/branch/develop/graph/badge.svg)](https://codecov.io/gh/fstpackage/lazyplyr)
 
 ## Overview
 
 The [lazyplyr package](https://github.com/fstpackage/lazyplyr) for `R`
-provides an easy way to create a low-memory overhead dplyr frontend to
+provides an easy way to create a low-memory-overhead dplyr frontend to
 offline datasets.
 
 ## Installation

@@ -9,7 +9,7 @@ read_column(lazy_col, index, length)
 \arguments{
 \item{lazy_col}{a lazy column}
 
-\item{index}{an integer vector specifying the indices to use from the vector, a single integer specifying
+\item{index}{an integer vector specifying the index to use from the vector, a single integer specifying
 the starting index position of the subset or NULL. If a single integer is used, length should be equal to the total number
 of elements. If NULL, the full column will be read.}
 

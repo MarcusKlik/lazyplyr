@@ -27,7 +27,7 @@
 #' Read data from a lazy column
 #'
 #' @param lazy_col a lazy column
-#' @param index an integer vector specifying the indices to use from the vector, a single integer specifying
+#' @param index an integer vector specifying the index to use from the vector, a single integer specifying
 #' the starting index position of the subset or NULL. If a single integer is used, length should be equal to the total number
 #' of elements. If NULL, the full column will be read.
 #' @param length total number of elements required or NULL if parameter index is set to a integer vector
@@ -55,10 +55,10 @@ read_column <- function(lazy_col, index, length) {
 #' @examples
 subset_vec <-  function(vec, index, length) {
   # full column
-  if (is.null(index)) {
+  if (is.null(index) || length(vec) == 1) {
     return(vec)
   }
-  
+
   # range
   if (is.null(length)) {
     return(vec[index])

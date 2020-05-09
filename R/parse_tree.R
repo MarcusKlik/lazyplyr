@@ -112,7 +112,7 @@ op2 <- function(method, vec1, vec2, index, length = NULL) {
 }
 
 
-#' restructure an expression for use with sub-setting method `read_column`
+#' restructure an expression for use with sub-setting methods `read_column` and `subset_vec`
 #'
 #' @param e expression to restructure
 #' @param col_symbols vector with the symbol names of variables that can be subsetted
