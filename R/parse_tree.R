@@ -24,94 +24,6 @@
 #  - lazyplyr R package source repository : https://github.com/fstpackage/lazyplyr
 
 
-#' Wraps a single argument operator or function
-#'
-#' @param method method to wrap
-#' @param vec1 a vector, must have length equal to 1 or the length of vec2
-#' @param index an integer vector specifying the indices to use from the vector, a single integer specifying
-#' the starting index position of the subset or NULL. If a single integer is used, length should be equal to the total number
-#' of elements. If NULL, the full column will be read.
-#' @param length total number of elements required or NULL if parameter index is set to a integer vector
-#'
-#' @export
-op1 <- function(method, vec1, index, length = NULL) {
-
-  # full column
-  if (is.null(index)) {
-    return(method(vec1))
-  }
-  
-  # index vector
-  if (is.null(length)) {
-    if (length(vec1) == 1) {
-      return(method(vec1))
-    } else {
-      return(method(vec1[index]))
-    }
-  }
-
-  # range
-  if (length(vec1) == 1) {
-    return(method(vec1))
-  }
-
-  method(vec1[index:(index + length - 1)])
-}
-
-
-#' Wraps a binary operator to enable subset results
-#'
-#' @param method method to wrap
-#' @param vec1 a vector, must have length equal to 1 or the length of vec2
-#' @param vec2 a vector, must have length equal to 1 or the length of vec1
-#' @param index an integer vector specifying the indices to use from the vector, a single integer specifying
-#' the starting index position of the subset or NULL. If a single integer is used, length should be equal to the total number
-#' of elements. If NULL, the full column will be read.
-#' @param length total number of elements required or NULL if parameter index is set to a integer vector
-#'
-#' @export
-op2 <- function(method, vec1, vec2, index, length = NULL) {
-  
-  # full column
-  if (is.null(index)) {
-    return(method(vec1, vec2))
-  }
-  
-  # index vector
-  if (is.null(length)) {
-    if (length(vec1) == 1) {
-      
-      if (length(vec2) == 1) {
-        return(method(vec1, vec2))
-      } else {
-        return(method(vec1, vec2[index]))
-      }
-    }
-    
-    if (length(vec2) == 1) {
-      return(method(vec1[index], vec2))
-    }
-    return(method(vec1[index], vec2[index]))
-  }
-  
-  # range
-  if (length(vec1) == 1) {
-    
-    if (length(vec2) == 1) {
-      return(method(vec1, vec2))
-    } else {
-      return(method(vec1, vec2[index:(index + length - 1)]))
-    }
-  }
-  
-  if (length(vec2) == 1) {
-    return(method(vec1[index:(index + length - 1)], vec2))
-  }
-  
-  method(vec1[index:(index + length - 1)], vec2[index:(index + length - 1)])
-}
-
-
 #' restructure an expression for use with sub-setting methods `read_column` and `subset_vec`
 #'
 #' @param e expression to restructure
@@ -120,16 +32,16 @@ op2 <- function(method, vec1, vec2, index, length = NULL) {
 #' @return a lazy table or vector
 #' @export
 parse_tree <- function(e, col_symbols) {
-  
+
   e <- enexpr(e)
-  
+
   tree <- parse_sub_tree(e, col_symbols)
 
   tree[[2]]
 }
 
 
-parse_sub_tree <- function(e, col_symbols) {
+parse_sub_tree <- function(e, col_symbols) {  # nolint
 
   # check for constants
   if (is_syntactic_literal(e)) {
@@ -215,7 +127,7 @@ parse_sub_tree <- function(e, col_symbols) {
 
 
 substitute_sub_tree <- function(e, col_symbols) {
-  
+
   # check for constants
   if (is_syntactic_literal(e)) {
     return(e)
@@ -223,15 +135,15 @@ substitute_sub_tree <- function(e, col_symbols) {
 
   # check for known column names
   if (is_symbol(e)) {
-    
+
     col <- as_string(e)
     if (col %in% col_symbols) {
       return(call2("read_column", e, expr(NULL)))
     }
-    
+
     return(e)
   }
-  
+
   if (is.call(e)) {
 
     # substitute sub trees

@@ -4,7 +4,7 @@
 \alias{read_column.lazy_column}
 \title{Default lazy column implementation}
 \usage{
-\method{read_column}{lazy_column}(lazy_col, index, length)
+read_column.lazy_column(lazy_col, index, length)
 }
 \arguments{
 \item{lazy_col}{a custom lazy column}

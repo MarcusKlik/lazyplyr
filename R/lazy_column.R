@@ -24,13 +24,19 @@
 #  - lazyplyr R package source repository : https://github.com/fstpackage/lazyplyr
 
 
-#' A lazy column
+#' Define a lazy column
 #'
-#' @param meta custom metadata needed to define the column data
+#' @description
+#' A 'lazy table' consists of one or more lazy colums. Each of these columns is a wrapper around a custom
+#' implemented class `lazy_col_impl` that can be used to access column data. The implementation class does not
+#' need to store column data in memory, but can use offline data storage instead (such as a file or database).
 #'
-#' @return a lazy column
+#' @param lazy_col_impl custom metadata needed to define the column data
+#'
+#' @return
+#' a lazy column
 #' @export
-lazy_column <- function(meta) {
+lazy_column <- function(lazy_col_impl) {
 
   col <- list(
     meta = meta
@@ -54,7 +60,7 @@ lazy_column <- function(meta) {
 #' @export
 #'
 #' @examples
-read_column.lazy_column <- function(lazy_col, index, length) {
+read_column.lazy_column <- function(lazy_col, index, length) {  # nolint
 
   # full column
   if (is.null(index)) {
@@ -74,14 +80,20 @@ read_column.lazy_column <- function(lazy_col, index, length) {
 #'
 #' @param lazy_col a custom lazy_column
 #'
-#' @return TRUE if the teste were succesfull, FALSE otherwise
+#' @return TRUE if the tests were successful, FALSE otherwise
 #' @export
 #'
 #' @examples
 lazy_column_test <- function(lazy_col) {
 
   res <- read_column(lazy_col, NULL, NULL)
-  meta <- data.frame(Test = "full read", Type = typeof(res), IsVector = is.vector(res), Length = length(res), Result = "oke")
+  meta <- data.frame(
+    Test = "full read",
+    Type = typeof(res),
+    IsVector = is.vector(res),
+    Length = length(res),
+    Result = "oke"
+  )
 
   as_tibble(meta)
 }

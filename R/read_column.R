@@ -28,8 +28,8 @@
 #'
 #' @param lazy_col a lazy column
 #' @param index an integer vector specifying the index to use from the vector, a single integer specifying
-#' the starting index position of the subset or NULL. If a single integer is used, length should be equal to the total number
-#' of elements. If NULL, the full column will be read.
+#' the starting index position of the subset or NULL. If a single integer is used, length should be equal to
+#' the total number of elements. If NULL, the full column will be read.
 #' @param length total number of elements required or NULL if parameter index is set to a integer vector
 #'
 #' @return a subset of a lazy_column
@@ -37,7 +37,7 @@
 #'
 #' @examples
 read_column <- function(lazy_col, index, length) {
-  UseMethod("read_column")
+
 }
 
 
@@ -45,8 +45,8 @@ read_column <- function(lazy_col, index, length) {
 #'
 #' @param vec vector to subset
 #' @param index an integer vector specifying the indices to use from the vector, a single integer specifying
-#' the starting index position of the subset or NULL. If a single integer is used, length should be equal to the total number
-#' of elements. If NULL, the full column will be read.
+#' the starting index position of the subset or NULL. If a single integer is used, length should be equal to the
+#' total number of elements. If NULL, the full column will be read.
 #' @param length total number of elements required or NULL if parameter index is set to a integer vector
 #'
 #' @return a subset of vector `vec`
@@ -63,6 +63,6 @@ subset_vec <-  function(vec, index, length) {
   if (is.null(length)) {
     return(vec[index])
   }
-  
+
   vec[index:(index + length - 1)]
 }

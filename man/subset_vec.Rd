@@ -10,8 +10,8 @@ subset_vec(vec, index, length)
 \item{vec}{vector to subset}
 
 \item{index}{an integer vector specifying the indices to use from the vector, a single integer specifying
-the starting index position of the subset or NULL. If a single integer is used, length should be equal to the total number
-of elements. If NULL, the full column will be read.}
+the starting index position of the subset or NULL. If a single integer is used, length should be equal to the
+total number of elements. If NULL, the full column will be read.}
 
 \item{length}{total number of elements required or NULL if parameter index is set to a integer vector}
 }

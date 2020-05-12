@@ -2,9 +2,9 @@
 % Please edit documentation in R/lazy_column.R
 \name{lazy_column}
 \alias{lazy_column}
-\title{A lazy column}
+\title{Define a lazy column}
 \usage{
-lazy_column(meta)
+lazy_column(lazy_col_impl)
 }
 \arguments{
 \item{meta}{custom metadata needed to define the column data}
@@ -13,5 +13,7 @@ lazy_column(meta)
 a lazy column
 }
 \description{
-A lazy column
+A 'lazy table' consists of one or more lazy colums. Each of these columns is a wrapper around a custom
+implemented class `lazy_col_impl` that can be used to access column data. The implementation class does not
+need to store column data in memory, but can use offline data storage instead (such as a file or database).
 }

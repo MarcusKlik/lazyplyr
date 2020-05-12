@@ -10,7 +10,7 @@ lazy_column_test(lazy_col)
 \item{lazy_col}{a custom lazy_column}
 }
 \value{
-TRUE if the teste were succesfull, FALSE otherwise
+TRUE if the tests were successful, FALSE otherwise
 }
 \description{
 Test a custom implemented lazy column
