@@ -1,4 +1,4 @@
-#  lazyplyr - a most lazy dplyr implementation for remote datasets
+# lazyplyr - a most lazy dplyr implementation for remote datasets
 #
 # Copyright (c) 2020 M.A.J. Klik
 #
@@ -27,8 +27,8 @@
 #' Define a lazy column
 #'
 #' @description
-#' A 'lazy table' consists of one or more lazy colums. Each of these columns is a wrapper around a custom
-#' implemented class `lazy_col_impl` that can be used to access column data. The implementation class does not
+#' A 'lazy table' consists of one or more lazy columns. Each of these columns is a wrapper around a lazy column
+#' implementation class `lazy_col_impl` that can be used to access column data. The implementation class does not
 #' need to store column data in memory, but can use offline data storage instead (such as a file or database).
 #'
 #' @param lazy_col_impl custom metadata needed to define the column data

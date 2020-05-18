@@ -24,13 +24,40 @@
 #  - lazyplyr R package source repository : https://github.com/fstpackage/lazyplyr
 
 
-#' @importFrom crayon italic
-#' @importFrom crayon cyan
-#' @import dplyr
-#' @importFrom rlang as_string call2 is_symbol is_syntactic_literal
-#' @importFrom tidyselect eval_select eval_rename
-#' @importFrom utils packageVersion
-NULL
+#' Define a lazy data frame
+#'
+#' @description A lazy frame is an implementation of the `lazy table` interface for data frames. This class serves
+#' as an example for how to implement a `lazy table`. It wraps an existing data frame and implements the API using that
+#' stored table.
+#'
+#' @param data_frame a data frame or equivalent such as a `tibble` or `data.table`
+#'
+#' @return object of class `lazy_frame` that provides an implementation for the `lazy table` API
+#' @export
+lazy_frame <- function(data_frame) {
+  
+  # define meta data
+  meta <- list(data = data_frame)
+  
+  class(meta) <- "lazy_frame"
+  
+  meta
+}
 
-# use of vaiables inside package
-utils::globalVariables(c("index", "args2"))
+
+#' @export
+read_row_index.lazy_frame <- function(lazy_frame, col_name, index) {  # nolint
+  lazy_frame$data[[col_name]][index]
+}
+
+
+#' @export
+read_row_range.lazy_frame <- function(lazy_frame, col_name, from, length) {  # nolint
+  lazy_frame$data[[col_name]][from:(from + length - 1)]
+}
+
+
+#' @export
+column_names.lazy_frame <- function(lazy_frame) {  # nolint
+  colnames(lazy_frame$data)
+}

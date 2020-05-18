@@ -2,9 +2,9 @@
 % Please edit documentation in R/lazy_table.R
 \name{lazy_table}
 \alias{lazy_table}
-\title{A lazy table}
+\title{Construct a lazy table}
 \usage{
-lazy_table(...)
+lazy_table(lazy_table_impl)
 }
 \arguments{
 \item{...}{lazy table columns defined as a set of named lazy columns}
@@ -13,5 +13,6 @@ lazy_table(...)
 a lazy table
 }
 \description{
-A lazy table
+Construct a lazy table by providing a `lazy_table_impl` class that can be used to access data. By providing the
+interface class, data can be generated on the fly or retrieved from out-of-memory locations such as a disk.
 }

@@ -7,13 +7,13 @@
 lazy_column(lazy_col_impl)
 }
 \arguments{
-\item{meta}{custom metadata needed to define the column data}
+\item{lazy_col_impl}{custom metadata needed to define the column data}
 }
 \value{
 a lazy column
 }
 \description{
-A 'lazy table' consists of one or more lazy colums. Each of these columns is a wrapper around a custom
-implemented class `lazy_col_impl` that can be used to access column data. The implementation class does not
+A 'lazy table' consists of one or more lazy columns. Each of these columns is a wrapper around a lazy column
+implementation class `lazy_col_impl` that can be used to access column data. The implementation class does not
 need to store column data in memory, but can use offline data storage instead (such as a file or database).
 }

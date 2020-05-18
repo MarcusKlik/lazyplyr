@@ -1,4 +1,4 @@
-#  lazyplyr - a most lazy dplyr implementation for remote datasets
+# lazyplyr - a most lazy dplyr implementation for remote datasets
 #
 # Copyright (c) 2020 M.A.J. Klik
 #

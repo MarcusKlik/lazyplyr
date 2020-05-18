@@ -1,4 +1,4 @@
-#  lazyplyr - a most lazy dplyr implementation for remote datasets
+# lazyplyr - a most lazy dplyr implementation for remote datasets
 #
 # Copyright (c) 2020 M.A.J. Klik
 #
@@ -44,7 +44,7 @@ read_column <- function(lazy_col, index, length) {
 #' Subset vector using special semantics
 #'
 #' @param vec vector to subset
-#' @param index an integer vector specifying the indices to use from the vector, a single integer specifying
+#' @param index an integer vector specifying the elements to use from the vector, a single integer specifying
 #' the starting index position of the subset or NULL. If a single integer is used, length should be equal to the
 #' total number of elements. If NULL, the full column will be read.
 #' @param length total number of elements required or NULL if parameter index is set to a integer vector

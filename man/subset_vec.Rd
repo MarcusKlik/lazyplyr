@@ -9,7 +9,7 @@ subset_vec(vec, index, length)
 \arguments{
 \item{vec}{vector to subset}
 
-\item{index}{an integer vector specifying the indices to use from the vector, a single integer specifying
+\item{index}{an integer vector specifying the elements to use from the vector, a single integer specifying
 the starting index position of the subset or NULL. If a single integer is used, length should be equal to the
 total number of elements. If NULL, the full column will be read.}
 
