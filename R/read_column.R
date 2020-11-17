@@ -34,8 +34,6 @@
 #'
 #' @return a subset of a lazy_column
 #' @export
-#'
-#' @examples
 read_column <- function(lazy_col, index, length) {
 
 }
@@ -51,8 +49,6 @@ read_column <- function(lazy_col, index, length) {
 #'
 #' @return a subset of vector `vec`
 #' @export
-#'
-#' @examples
 subset_vec <-  function(vec, index, length) {
   # full column
   if (is.null(index) || length(vec) == 1) {

@@ -58,8 +58,6 @@ lazy_column <- function(lazy_col_impl) {
 #'
 #' @return
 #' @export
-#'
-#' @examples
 read_column.lazy_column <- function(lazy_col, index, length) {  # nolint
 
   # full column
@@ -82,8 +80,6 @@ read_column.lazy_column <- function(lazy_col, index, length) {  # nolint
 #'
 #' @return TRUE if the tests were successful, FALSE otherwise
 #' @export
-#'
-#' @examples
 lazy_column_test <- function(lazy_col) {
 
   res <- read_column(lazy_col, NULL, NULL)

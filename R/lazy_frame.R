@@ -37,7 +37,7 @@
 lazy_frame <- function(...) {
 
   args <- list(...)
-  
+
   if (length(args) == 1 && is.data.frame(args[[1]])) {
     meta <- as.data.frame(args)
   } else {
