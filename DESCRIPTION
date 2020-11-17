@@ -22,6 +22,6 @@ Suggests:
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 URL: https://fstpackage.github.io/lazyplyr
 BugReports: https://github.com/fstpackage/lazyplyr/issues

@@ -1,4 +1,4 @@
-#  lazyplyr - a most lazy dplyr implementation for remote datasets
+# lazyplyr - a most lazy dplyr implementation for remote datasets
 #
 # Copyright (c) 2020 M.A.J. Klik
 #
@@ -24,25 +24,10 @@
 #  - lazyplyr R package source repository : https://github.com/fstpackage/lazyplyr
 
 
-#' wrap a table or vector
-#'
-#' @param obj a data.frame, tibble, data.table or vector object
-#'
-#' @return a lazy table or lazy vector
 #' @export
-lazy_wrap <- function(obj) {
-
-  if (is.vector(obj)) {
-    return(lazy_column(obj))
-  }
-
-  if (!is.data.frame(obj)) {
-    stop("obj must be a data.frame (or equivalent) or a vector")
-  }
-
-  res <- lapply(obj, function(col) {
-    lazy_column(col)
-  })
-
-  lazy_table(res)
+print.lazy_table <- function(lazy_table_impl) {
+  
+  # construct first 
+  pillar::pillar(1:10, "col_title")
+  
 }

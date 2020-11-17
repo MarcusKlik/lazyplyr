@@ -4,16 +4,16 @@
 \alias{lazy_frame}
 \title{Define a lazy data frame}
 \usage{
-lazy_frame(data_frame)
+lazy_frame(...)
 }
 \arguments{
-\item{data_frame}{a data frame or equivalent such as a `tibble` or `data.table`}
+\item{...}{columns for the lazy_frame or a data frame (or equivalent)}
 }
 \value{
 object of class `lazy_frame` that provides an implementation for the `lazy table` API
 }
 \description{
 A lazy frame is an implementation of the `lazy table` interface for data frames. This class serves
-as an example for how to implement a `lazy table`. It wraps an existing data frame and implements the API using that
-stored table.
+as an example for how to implement a `lazy table`. It wraps an existing data frame and implements the API using a
+data frame stored in memory.
 }

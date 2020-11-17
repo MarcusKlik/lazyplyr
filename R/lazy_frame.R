@@ -26,22 +26,28 @@
 
 #' Define a lazy data frame
 #'
-#' @description A lazy frame is an implementation of the `lazy table` interface for data frames. This class serves
-#' as an example for how to implement a `lazy table`. It wraps an existing data frame and implements the API using that
-#' stored table.
+#' @param ... columns for the lazy_frame or a data frame (or equivalent)
 #'
-#' @param data_frame a data frame or equivalent such as a `tibble` or `data.table`
+#' @description A lazy frame is an implementation of the `lazy table` interface for data frames. This class serves
+#' as an example for how to implement a `lazy table`. It wraps an existing data frame and implements the API using a
+#' data frame stored in memory.
 #'
 #' @return object of class `lazy_frame` that provides an implementation for the `lazy table` API
 #' @export
-lazy_frame <- function(data_frame) {
+lazy_frame <- function(...) {
+
+  args <- list(...)
   
-  # define meta data
-  meta <- list(data = data_frame)
-  
-  class(meta) <- "lazy_frame"
-  
-  meta
+  if (length(args) == 1 && is.data.frame(args[[1]])) {
+    meta <- as.data.frame(args)
+  } else {
+    meta <- data.frame(...)
+  }
+
+  lazy_table_impl <- list(data = meta)
+  class(lazy_table_impl) <- "lazy_frame"
+
+  lazy_table(lazy_table_impl)
 }
 
 
