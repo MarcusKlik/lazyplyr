@@ -2,13 +2,11 @@ Package: lazyplyr
 Type: Package
 Title: a most lazy dplyr implementation for remote datasets
 Version: 0.1.0
-Date: 2020-04-21
+Date: 2021-03-24
 Authors@R: c(
     person("Mark", "Klik", email = "markklik@gmail.com", role = c("aut", "cre", "cph")))
-Description: Provides a toolset for interfacing with out of memory datasets using the dplyr interface. All dplyr verbs
-    are computed in the most laziest possible manner to minimize RAM usage and data transfer to offline systems.
-Depends:
-    R (>= 3.0.0)
+Description: Provides a toolset for interfacing with out of memory datasets using the dplyr interface. All dplyr verbs are computed in the most laziest possible manner to minimize RAM usage and data transfer to offline systems.
+Depends: R (>= 3.0.0)
 License: MIT + file LICENSE
 Imports:
     crayon,
