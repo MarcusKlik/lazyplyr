@@ -15,6 +15,10 @@ knitr::opts_chunk$set(
 
 <!-- <img src="logo.png" align="right" /> -->
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/MarcusKlik/lazyplyr/workflows/R-CMD-check/badge.svg)](https://github.com/MarcusKlik/lazyplyr/actions)
+<!-- badges: end -->
+
 [![Linux/OSX Build Status](https://travis-ci.org/marcusklik/lazyplyr.svg?branch=develop)](https://travis-ci.org/marcusklik/lazyplyr)
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/bfm7amtkyjvc2rk9?svg=true)](https://ci.appveyor.com/project/marcusklik/lazyplyr)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
