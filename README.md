@@ -1,21 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
 <!-- <img src="logo.png" align="right" /> -->
+<!-- badges: start -->
 
-[![Linux/OSX Build
-Status](https://travis-ci.org/fstpackage/lazyplyr.svg?branch=develop)](https://travis-ci.org/fstpackage/lazyplyr)
-[![Windows Build
-status](https://ci.appveyor.com/api/projects/status/bfm7amtkyjvc2rk9?svg=true)](https://ci.appveyor.com/project/fstpackage/lazyplyr)
-[![License: AGPL
-v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-blue.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![codecov](https://codecov.io/gh/fstpackage/lazyplyr/branch/develop/graph/badge.svg)](https://codecov.io/gh/fstpackage/lazyplyr)
+[![R-CMD-check](https://github.com/MarcusKlik/lazyplyr/workflows/R-CMD-check/badge.svg)](https://github.com/MarcusKlik/lazyplyr/actions)
+<!-- badges: end -->
 
 ## Overview
 
-The [lazyplyr package](https://github.com/fstpackage/lazyplyr) for `R`
+The [lazyplyr package](https://github.com/marcusklik/lazyplyr) for `R`
 provides an easy way to create a low-memory-overhead dplyr frontend to
 offline datasets.
 
@@ -24,7 +17,7 @@ offline datasets.
 You can install the package directly from GitHub:
 
 ``` r
-devtools::install_github("fstpackage/lazyplyr")
+devtools::install_github("marcusklik/lazyplyr")
 ```
 
 ## Basic usage
