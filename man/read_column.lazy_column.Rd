@@ -15,9 +15,6 @@ of elements.}
 
 \item{length}{total number of elements required or NULL if parameter index is set to a integer vector}
 }
-\value{
-
-}
 \description{
 Default lazy column implementation
 }

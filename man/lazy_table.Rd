@@ -7,7 +7,7 @@
 lazy_table(lazy_table_impl)
 }
 \arguments{
-\item{...}{lazy table columns defined as a set of named lazy columns}
+\item{lazy_table_impl}{implementation of a lazy_table class}
 }
 \value{
 a lazy table

@@ -1,24 +1,14 @@
-# lazyplyr - a most lazy dplyr implementation for remote datasets
+# lazyplyr - a most lazy dplyr implementation for remote data frames
 #
-# Copyright (c) 2020 M.A.J. Klik
+#  Copyright (C) 2021-present, Mark AJ Klik
 #
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
+#  This file is part of the lazyplyr R package.
 #
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
+#  This Source Code Form is subject to the terms of the Mozilla Public
+#  License, v. 2.0. If a copy of the MPL was not distributed with this file,
+#  You can obtain one at https://mozilla.org/MPL/2.0/.
 #
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+#  https://www.mozilla.org/en-US/MPL/2.0/FAQ/
 #
 #  You can contact the author at:
 #  - lazyplyr R package source repository : https://github.com/fstpackage/lazyplyr
@@ -26,11 +16,11 @@
 
 #' Construct a lazy table
 #'
+#' @param lazy_table_impl implementation of a lazy_table class
+#'
 #' @description
 #' Construct a lazy table by providing a `lazy_table_impl` class that can be used to access data. By providing the
 #' interface class, data can be generated on the fly or retrieved from out-of-memory locations such as a disk.
-#'
-#' @param ... lazy table columns defined as a set of named lazy columns
 #'
 #' @return a lazy table
 #' @export

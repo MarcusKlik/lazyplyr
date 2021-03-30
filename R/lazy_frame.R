@@ -1,24 +1,14 @@
-# lazyplyr - a most lazy dplyr implementation for remote datasets
+# lazyplyr - a most lazy dplyr implementation for remote data frames
 #
-# Copyright (c) 2020 M.A.J. Klik
+#  Copyright (C) 2021-present, Mark AJ Klik
 #
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
+#  This file is part of the lazyplyr R package.
 #
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
+#  This Source Code Form is subject to the terms of the Mozilla Public
+#  License, v. 2.0. If a copy of the MPL was not distributed with this file,
+#  You can obtain one at https://mozilla.org/MPL/2.0/.
 #
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+#  https://www.mozilla.org/en-US/MPL/2.0/FAQ/
 #
 #  You can contact the author at:
 #  - lazyplyr R package source repository : https://github.com/fstpackage/lazyplyr
@@ -51,18 +41,35 @@ lazy_frame <- function(...) {
 }
 
 
+#' Read rows from a lazy data frame
+#'
+#' @param lazy_frame lazy frame
+#' @param col_name column name
+#' @param index index values
+#'
 #' @export
 read_row_index.lazy_frame <- function(lazy_frame, col_name, index) {  # nolint
   lazy_frame$data[[col_name]][index]
 }
 
 
+#' Read a row range from a lazy data frame
+#'
+#' @param lazy_frame lazy frame
+#' @param col_name column name
+#' @param from starting row
+#' @param length length of selection
+#'
 #' @export
 read_row_range.lazy_frame <- function(lazy_frame, col_name, from, length) {  # nolint
   lazy_frame$data[[col_name]][from:(from + length - 1)]
 }
 
 
+#' Get column names from a lazy data frame
+#'
+#' @param lazy_frame lazy frame
+#'
 #' @export
 column_names.lazy_frame <- function(lazy_frame) {  # nolint
   colnames(lazy_frame$data)

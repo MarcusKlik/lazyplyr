@@ -1,4 +1,2 @@
 
-require(tibble)
-
 context("select")

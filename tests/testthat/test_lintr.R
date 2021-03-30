@@ -1,6 +1,4 @@
 
-require(lintr)
-
 context("code quality")
 
 
