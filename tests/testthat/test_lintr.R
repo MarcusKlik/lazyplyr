@@ -1,19 +1,21 @@
 
-context("code quality")
+require(lintr)
 
-library(lintr)
+context("code quality")
 
 
 test_that("Package Style", {
+
+  # get default lintr set with line length exception
   lints <- with_defaults(line_length_linter = line_length_linter(120))
 
   code_files <- list.files(
-    c("../../R", "../../tests", "../../prepare"), "R$",
+    c("../../R", "../../tests"), "\\.R$",
     full.names = TRUE, recursive = TRUE)
 
   # manualy remove RcppExports file and few generated files (e.g. by codecov())
-  code_files <- code_files[!(code_files %in%
-    c("../../R/RcppExports.R"))]
+  # code_files <- code_files[!(code_files %in%
+  #   c("../../R/RcppExports.R"))]
 
   # Calculate lintr results for all code files
   lint_results <- lintr:::flatten_lints(lapply(code_files, function(file) {

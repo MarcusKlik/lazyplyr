@@ -33,8 +33,8 @@
 #'
 #' @param lazy_col_impl custom metadata needed to define the column data
 #'
-#' @return
-#' a lazy column
+#' @return a lazy column
+#'
 #' @export
 lazy_column <- function(lazy_col_impl) {
 
@@ -83,13 +83,12 @@ read_column.lazy_column <- function(lazy_col, index, length) {  # nolint
 lazy_column_test <- function(lazy_col) {
 
   res <- read_column(lazy_col, NULL, NULL)
-  meta <- data.frame(
+
+  tibble(
     Test = "full read",
     Type = typeof(res),
     IsVector = is.vector(res),
     Length = length(res),
     Result = "oke"
   )
-
-  as_tibble(meta)
 }
