@@ -15,7 +15,7 @@
 
 
 #' @export
-print.lazy_table <- function(lazy_table_impl) {
+print.lazy_table <- function(x, ...) {
 
   # construct first
   pillar::pillar(1:10, "col_title")

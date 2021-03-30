@@ -41,36 +41,19 @@ lazy_frame <- function(...) {
 }
 
 
-#' Read rows from a lazy data frame
-#'
-#' @param lazy_frame lazy frame
-#' @param col_name column name
-#' @param index index values
-#'
 #' @export
-read_row_index.lazy_frame <- function(lazy_frame, col_name, index) {  # nolint
-  lazy_frame$data[[col_name]][index]
+read_row_index.lazy_frame <- function(lazy_frame_impl, col_name, index) {  # nolint
+  lazy_frame_impl$data[[col_name]][index]
 }
 
 
-#' Read a row range from a lazy data frame
-#'
-#' @param lazy_frame lazy frame
-#' @param col_name column name
-#' @param from starting row
-#' @param length length of selection
-#'
 #' @export
-read_row_range.lazy_frame <- function(lazy_frame, col_name, from, length) {  # nolint
-  lazy_frame$data[[col_name]][from:(from + length - 1)]
+read_row_range.lazy_frame <- function(lazy_frame_impl, col_name, from, length) {  # nolint
+  lazy_frame_impl$data[[col_name]][from:(from + length - 1)]
 }
 
 
-#' Get column names from a lazy data frame
-#'
-#' @param lazy_frame lazy frame
-#'
 #' @export
-column_names.lazy_frame <- function(lazy_frame) {  # nolint
-  colnames(lazy_frame$data)
+column_names.lazy_frame <- function(lazy_frame_impl) {  # nolint
+  colnames(lazy_frame_impl$data)
 }

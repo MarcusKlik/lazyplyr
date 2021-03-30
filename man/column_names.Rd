@@ -4,10 +4,10 @@
 \alias{column_names}
 \title{Get column names}
 \usage{
-column_names(lazy_table_impl)
+column_names(lazy_frame_impl)
 }
 \arguments{
-\item{lazy_table_impl}{a custom object with a lazy table API such as a `lazy_frame` (see method `lazy_frame()`)}
+\item{lazy_frame_impl}{a custom object with a lazy table API such as a `lazy_frame` (see method `lazy_frame()`)}
 }
 \value{
 character vector of column names

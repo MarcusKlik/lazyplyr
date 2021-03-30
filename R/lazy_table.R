@@ -51,7 +51,7 @@ lazy_table <- function(lazy_table_impl) {
 
 #' Read data from a lazy column
 #'
-#' @param lazy_table_impl a custom object with a lazy table API such as a `lazy_frame` (see method `lazy_frame()`)
+#' @param lazy_frame_impl a custom object with a lazy table API such as a `lazy_frame` (see method `lazy_frame()`)
 #' @param col_name lazy table column to retrieve data from
 #' @param index integer vector specifying the index to use from the vector, a single integer specifying
 #' the starting index position of the subset or NULL. If a single integer is used, length should be equal to
@@ -59,32 +59,31 @@ lazy_table <- function(lazy_table_impl) {
 #'
 #' @return a subset of a single lazy table column vector
 #' @export
-read_row_index <- function(lazy_table_impl, col_name, index) {
-  UseMethod("read_row_index", lazy_table_impl)
+read_row_index <- function(lazy_frame_impl, col_name, index) {
+  UseMethod("read_row_index", lazy_frame_impl)
 }
 
 
 #' Read data from a lazy column
 #'
-#' @param lazy_frame an object generated with `lazy_frame()`
+#' @param lazy_frame_impl an object generated with `lazy_frame()`
 #' @param col_name lazy table column to retrieve data from
 #' @param from starting element
 #' @param length length of the vector returned
 #'
 #' @return a subset of a single lazy table column vector
 #' @export
-#' @rdname read_row_index
-read_row_range <- function(lazy_table_impl, col_name, from, length) {
-  UseMethod("read_row_range", lazy_table_impl)
+read_row_range <- function(lazy_frame_impl, col_name, from, length) {
+  UseMethod("read_row_range", lazy_frame_impl)
 }
 
 
 #' Get column names
 #'
-#' @param lazy_table_impl a custom object with a lazy table API such as a `lazy_frame` (see method `lazy_frame()`)
+#' @param lazy_frame_impl a custom object with a lazy table API such as a `lazy_frame` (see method `lazy_frame()`)
 #'
 #' @return character vector of column names
 #' @export
-column_names <- function(lazy_table_impl) {
-  UseMethod("column_names", lazy_table_impl)
+column_names <- function(lazy_frame_impl) {
+  UseMethod("column_names", lazy_frame_impl)
 }
