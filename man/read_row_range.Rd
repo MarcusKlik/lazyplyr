@@ -4,10 +4,10 @@
 \alias{read_row_range}
 \title{Read data from a lazy column}
 \usage{
-read_row_range(lazy_frame_impl, col_name, from, length)
+read_row_range(x, col_name, from, length)
 }
 \arguments{
-\item{lazy_frame_impl}{an object generated with `lazy_frame()`}
+\item{x}{a custom object with a lazy table API such as a `lazy_frame` (see method `lazy_frame()`)}
 
 \item{col_name}{lazy table column to retrieve data from}
 

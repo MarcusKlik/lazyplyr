@@ -15,14 +15,6 @@
 
 
 #' @export
-dplyr::`%>%`
-
-
-#' @export
-dplyr::select
-
-
-#' @export
 select.lazy_table <- function(.data, ...) {  # nolint
 
   selector <- attr(.data, "cols")

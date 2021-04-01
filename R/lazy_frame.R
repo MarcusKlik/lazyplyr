@@ -28,32 +28,32 @@ lazy_frame <- function(...) {
 
   args <- list(...)
 
+  # arguments can be a single data frame or multiple columns
   if (length(args) == 1 && is.data.frame(args[[1]])) {
     meta <- as.data.frame(args)
   } else {
     meta <- data.frame(...)
   }
 
-  lazy_table_impl <- list(data = meta)
-  class(lazy_table_impl) <- "lazy_frame"
+  lazy_table_impl <- structure(list(data = meta), class = "lazy_frame")
 
   lazy_table(lazy_table_impl)
 }
 
 
 #' @export
-read_row_index.lazy_frame <- function(lazy_frame_impl, col_name, index) {  # nolint
-  lazy_frame_impl$data[[col_name]][index]
+read_row_index.lazy_frame <- function(x, col_name, index) {  # nolint
+  x$data[[col_name]][index]
 }
 
 
 #' @export
-read_row_range.lazy_frame <- function(lazy_frame_impl, col_name, from, length) {  # nolint
-  lazy_frame_impl$data[[col_name]][from:(from + length - 1)]
+read_row_range.lazy_frame <- function(x, col_name, from, length) {  # nolint
+  x$data[[col_name]][from:(from + length - 1)]
 }
 
 
 #' @export
-column_names.lazy_frame <- function(lazy_frame_impl) {  # nolint
-  colnames(lazy_frame_impl$data)
+column_names.lazy_frame <- function(x) {  # nolint
+  colnames(x$data)
 }

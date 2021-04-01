@@ -4,10 +4,10 @@
 \alias{read_row_index}
 \title{Read data from a lazy column}
 \usage{
-read_row_index(lazy_frame_impl, col_name, index)
+read_row_index(x, col_name, index)
 }
 \arguments{
-\item{lazy_frame_impl}{a custom object with a lazy table API such as a `lazy_frame` (see method `lazy_frame()`)}
+\item{x}{a custom object with a lazy table API such as a `lazy_frame` (see method `lazy_frame()`)}
 
 \item{col_name}{lazy table column to retrieve data from}
 

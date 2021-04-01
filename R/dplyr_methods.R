@@ -12,3 +12,11 @@
 #
 #  You can contact the author at:
 #  - lazyplyr R package source repository : https://github.com/fstpackage/lazyplyr
+
+
+#' @export
+dplyr::`%>%`
+
+
+#' @export
+dplyr::select
