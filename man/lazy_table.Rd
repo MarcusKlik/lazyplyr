@@ -7,12 +7,19 @@
 lazy_table(lazy_table_impl)
 }
 \arguments{
-\item{lazy_table_impl}{implementation of a lazy_table class}
+\item{lazy_table_impl}{a custom class for which all the \code{lazy_table} generics are implemented:
+\itemize{
+\item read_row_index
+\item read_row_range
+\item column_names
+}
+
+These generic functions are required for a \code{lazy_table} to be able to implement the full dplyr syntax.}
 }
 \value{
 a lazy table
 }
 \description{
-Construct a lazy table by providing a `lazy_table_impl` class that can be used to access data. By providing the
+Construct a lazy table by providing a \code{lazy_table_impl} class that can be used to access data. By providing the
 interface class, data can be generated on the fly or retrieved from out-of-memory locations such as a disk.
 }
