@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-<!-- <img src="logo.png" align="right" /> -->
+
+<img src="lazyplyr.png" align="right" align="right" height="196" width="196" />
+
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/MarcusKlik/lazyplyr/workflows/R-CMD-check/badge.svg)](https://github.com/MarcusKlik/lazyplyr/actions)

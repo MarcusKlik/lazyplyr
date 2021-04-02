@@ -13,7 +13,7 @@ submitting the pull request.
 are making changes in the GitHub web interface) just submit anyway and the maintainer will clean things up.
 
 3. All contributions must be submitted consistent with the package license
-([AGPL-3](https://www.gnu.org/licenses/agpl-3.0.en.html)).
+([MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/)).
  
 4. Contributions in the code (not documentation) that consist of more than 1000 characters (excluding spaces)
 need to be noted in the `Authors@R` field in the
