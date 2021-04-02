@@ -20,3 +20,7 @@ dplyr::`%>%`
 
 #' @export
 dplyr::select
+
+
+#' @export
+dplyr::rename

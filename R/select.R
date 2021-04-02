@@ -14,6 +14,12 @@
 #  - lazyplyr R package source repository : https://github.com/fstpackage/lazyplyr
 
 
+#' dplyr select
+#'
+#' @param .data object of class lazy_table
+#'
+#' @param ... additional parameters
+#'
 #' @export
 select.lazy_table <- function(.data, ...) {  # nolint
 
@@ -35,10 +41,13 @@ select.lazy_table <- function(.data, ...) {  # nolint
 }
 
 
+#' dplyr rename
+#'
+#' @param .data object of class lazy_table
+#'
+#' @param ... additional parameters
+#'
 #' @export
-dplyr::rename
-
-
 #' @export
 rename.lazy_table <- function(.data, ...) {  # nolint
 
